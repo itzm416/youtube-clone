@@ -1,6 +1,6 @@
 # youtube-clone-project
 
-### Live demo <span>https://itz-youtube-clone.herokuapp.com</span>
+### Live demo <span>https://shielded-springs-23226.herokuapp.com</span>
 
 #### Features
 
