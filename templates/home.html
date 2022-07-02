@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    
+    <!-- Videos Section -->
+    <div class="videos">
+      <h1>Recommended</h1>
+
+      <div class="videos__container">
+        <!-- Single Video starts -->
+
+        {% for p in video %}
+
+        
+        <div class="video">
+
+            <a href="{% url 'video' p.slug %}">
+
+          <div class="video__thumbnail">
+            <img src="/media/{{p.video_thumbnail}}" alt="" />
+          </div>
+
+        </a>
+
+          <div class="video__details">
+
+
+            {% for c in youtube %}
+
+            {% if c.youtuber == p.creator %}
+
+            <a href="{% url 'userchannel' p.slug %}">
+
+            <div class="author">
+                <img src="/media/{{c.youtube_image}}" alt="" />
+              </div>
+
+            </a>
+
+              <div class="title">
+
+                <a href="{% url 'video' p.slug %}">
+
+                <h3>
+                  {{p.video_title}}
+                </h3>
+  
+            </a>
+
+                <a href="">{{c.channel_name}}</a>
+                <span>{{p.add_date}}</span>
+
+              </div>
+  
+            {% endif %}
+
+            {% endfor %}
+
+          </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+    
+</div>
+
+<!-- Single Video Ends -->
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Post {% endblock %}
+
+{% block content %}
+
+
+
+ <!-- Videos Section -->
+ <div class="videos">
+ 
+    <div class="videos__container">
+      <!-- Single Video starts -->
+
+
+      
+
+
+
+
+      <div class="container mb-5" style="margin-top: 20px;">
+
+        <h2>Upload Video</h2>
+    
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+         
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Title</label>
+                {{form.video_title}}
+            </div>
+            
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Video</label>
+                {{form.video}}
+            </div>
+    
+    
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Desc</label>
+                {{form.video_desc}}
+            </div>
+    
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Thumbnail</label>
+                {{form.video_thumbnail}}
+            </div>
+         
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    
+    
+    </div>
+    
+            
+
+     
+
+  </div>
+</div>
+
+<!-- Single Video Ends -->
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Videos Section -->
+<div class="videos">
+
+    <div class="videos__container">
+        <!-- Single Video starts -->
+
+
+        <div class="container rounded bg-white mt-5 mb-5">
+
+            <h2>User Profile</h2>
+
+            <div class="row">
+                <div class="col-md-3 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                            class="rounded-circle mt-5" width="150px" height="150px"
+                            src="{{request.user.youtuber.youtube_image.url}}"><span
+                            class="font-weight-bold">{{request.user}}</span><span
+                            class="text-black-50">{{request.user.email}}</span><span> </span></div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="p-3 py-5 mt-4">
+                     
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        {{form}}
+                        <button type="submit" class="btn btn-primary mt-2">Save</button>
+                        <a class="btn btn-secondary text-decoration-none mt-2" href="{% url 'logout' %}" role="button">Logout</a>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+
+</div>
+
+<!-- Single Video Ends -->
+
+</div>
+
+{% endblock %}

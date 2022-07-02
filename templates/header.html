@@ -1,0 +1,73 @@
+{% load static %}
+
+<!-- Header Starts -->
+<div class="header">
+    <div class="header__left">
+        <i id="menu" class="material-icons">menu</i>
+        <a href="{% url 'home' %}"> <img src="{% static 'youtube.png' %}" alt="" /></a>
+
+    </div>
+
+    <div class="header__search">
+
+
+    </div>
+
+
+    <form method="get" action="{% url 'search' %}">
+        <input style="width: 125px;" type="text" name="query" placeholder="Search" />
+      
+    </form>
+
+    <div class="header__icons">
+        
+
+        <a href="{% url 'addvideo' %}"><i class="material-icons">videocam</i></a>
+        
+       
+        <a class="text-decoration-none" href="{% url 'userprofile' %}">
+
+            <i class="material-icons display-this">account_circle</i>
+
+        </a>
+
+    </div>
+</div>
+<!-- Header Ends -->
+
+
+<!-- Main Body Starts -->
+<div class="mainBody">
+
+    <!-- Sidebar Starts -->
+    <div class="sidebar">
+        <div class="sidebar__categories">
+            <div class="sidebar__category">
+                <a class="text-decoration-none" href="{% url 'home' %}"><i
+                        class="material-icons">home</i><span>Home</span>
+                </a>
+            </div>
+
+        </div>
+        <hr />
+        <div class="sidebar__categories">
+
+            <div class="sidebar__category">
+
+                <a class="text-decoration-none" href="{% url 'uservideos' %}"><i
+                        class="material-icons">play_arrow</i><span>Your Videos</span>
+
+                </a>
+
+            </div>
+
+            <div class="sidebar__category">
+                <a class="text-decoration-none" href="{% url 'uliked' %}">
+                    <i class="material-icons">thumb_up</i>
+                    <span>Liked Videos</span>
+                </a>
+            </div>
+        </div>
+        <hr />
+    </div>
+    <!-- Sidebar Ends -->

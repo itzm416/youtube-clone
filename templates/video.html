@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Videos Section -->
+<div class="videos">
+
+    <div class="videos__container">
+        <!-- Single Video starts -->
+
+
+
+
+        <main class="container">
+
+            <div class="row g-5">
+
+                <div class="col-md-8 px-4">
+
+                    <article class="blog-post mt-4">
+
+                        <div class="container mb-4 mt-2" style="padding-left: 0rem; padding-right: 0rem;">
+
+                            <video style=" width: 100%;object-fit: cover;" autoplay controls>
+                                <source src="/media/{{video.video}}" type="video/mp4">
+                            </video>
+
+                        </div>
+
+                        <h3>
+                            {{video.video_title}}
+                        </h3>
+
+
+                        <div class="author">
+                            
+                            <a href="{% url 'userchannel' video.slug %}"><img src="/media/{{youtube.youtube_image}}" alt="" /></a>
+
+                            <span><a href="{% url 'userchannel' video.slug %}" class="text-decoration-none text-dark">{{youtube.channel_name}}</a></span>
+
+                            <span>
+                                <div class="btn-group float-end" role="group" aria-label="Basic example">
+
+                                    {% if liked %}
+
+                                    <a class="btn btn-link text-decoration-none" href="{% url 'like' video.slug %}" role="button">  <i class="fa fa-thumbs-up" style="font-size:24px">  </i>  {{likes}}</a>
+
+                    
+                                    {% else %}
+
+                                    <a class="btn btn-link text-decoration-none" href="{% url 'like' video.slug %}" role="button"> <i class="fa fa-thumbs-o-up" style="font-size:24px"></i> {{likes}}</a>
+
+                            
+                                    {% endif %}
+
+
+                                    {% if disliked %}
+
+
+                                    <a class="btn btn-link text-decoration-none" href="{% url 'dislike' video.slug %}" role="button"> <i class="fa fa-thumbs-down" style="font-size:24px"> </i> {{dislike}}</a>
+
+                                        {% else %}
+
+                                        <a class="btn btn-link text-decoration-none" href="{% url 'dislike' video.slug %}" role="button"> <i class="fa fa-thumbs-o-down" style="font-size:24px"> </i> {{dislike}}</a>
+
+                                        {% endif %}
+
+
+                                    {% if subscribed %}
+                                    <a class="btn btn-secondary" href="{% url 'subscribe' video.slug %}"
+                                        role="button">Subscribed</a>
+                                    {% else %}
+                                    <a class="btn btn-danger" href="{% url 'subscribe' video.slug %}"
+                                        role="button">Subscribe</a>
+                                    {% endif %}
+
+
+                                </div>
+                            </span>
+
+                            <div class="container mx-2">
+                                <small>{{video.add_date}}</small>
+                            </div>
+
+                        </div>
+
+                        <div class="container mx-2 mt-4">
+                            <p>
+                                {{video.video_desc}}
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <div class="col-md-4 px-0">
+                    <div class="position-sticky">
+                        <div class="p-3">
+
+                            <h2 class="mb-4">Recommended</h2>
+
+
+                            <ol class="list-unstyled mb-0">
+
+                                <div class="container-fluid" style="padding-left: 0rem; padding-right: 0rem;">
+
+                                    {% for p in videos %}
+
+                                    {% for c in youtubers %}
+
+                                    {% if c.youtuber == p.creator %}
+
+                                    <article class="blog-post">
+
+                                        <a class="text-decoration-none text-dark" href="{% url 'video' p.slug %}">
+
+                                            <div class="container mb-4 mt-2"
+                                                style="padding-left: 0rem; padding-right: 0rem;">
+
+                                                <img class="card-img-top" src="/media/{{p.video_thumbnail}}"
+                                                    alt="Card image cap">
+
+                                            </div>
+
+                                            <h5>
+                                                {{p.video_title}}
+                                            </h5>
+
+                                        </a>
+
+                                        <div class="author">
+                                            <img src="/media/{{c.youtube_image}}" alt="" />
+                                            <a href="" class="text-decoration-none text-dark">{{c.channel_name}}</a>
+
+                                            <div class="container mx-2">
+                                                <small>{{p.add_date}}</small>
+                                            </div>
+
+                                        </div>
+
+
+                                    </article>
+
+                                    {% endif %}
+
+                                    {% endfor %}
+
+                                    {%endfor%}
+
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+
+<!-- Single Video Ends -->
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+  
+
+ <!-- Videos Section -->
+ <div class="videos">
+ 
+    <div class="videos__container">
+      <!-- Single Video starts -->
+
+
+      
+
+
+
+
+        <div id="intro" class="bg-image shadow-2-strong">
+            <div class="h-100">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xl-12 col-md-12">
+                      <form method="post" class="bg-white border shadow p-5 mb-3 bg-body rounded mt-4">
+                        <h3 class="mb-3 text-center" style="font-family: 'Mochiy Pop P One', sans-serif;">Login</h3>
+                      <!-- Email input -->
+                      {% csrf_token %}
+                      <div class="form-outline mb-2">
+                        <label class="form-label" for="form1Example1">Username</label>
+                        {{form.username}}
+                    </div>
+                    
+        
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="form1Example2">Password</label>
+                        {{form.password}}
+                    </div>
+                   
+                    <small class="text-danger mt-2">{{form.non_field_errors}}</small>
+
+                      <!-- 2 column grid layout for inline styling -->
+                      <div class="row mb-1">
+                        <small class="mb-4 mt-1">Do not have an account ? <a class="text-decoration-none" href="{% url 'signup' %}">Signup</a></small>
+                        <small class="mb-4"><a class="text-decoration-none text-danger" href="{% url 'send-email' %}">Forgot Password ?</a></small>
+                    </div>
+        
+                      <!-- Submit button -->
+                      <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+     
+
+  </div>
+</div>
+
+<!-- Single Video Ends -->
+
+</div>
+
+
+
+
+
+{% endblock %}

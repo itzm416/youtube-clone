@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Videos Section -->
+<div class="videos">
+
+    <div class="videos__container">
+        <!-- Single Video starts -->
+
+        <div class="container">
+            <div class="card py-4">
+                <h3 class="font-weight-normal p-3 fs-1">Youtube Channel</h3> <span
+                    class="notify-text p-3 fs-5 mx-1">{{youtube.youtuber}}</span>
+                <div class="mt-1">
+                    <div class="d-flex justify-content-between p-2 outline">
+
+                            <img src="/media/{{youtube.youtube_image}}"  width="100" height="100" class="rounded-circle float-start" alt="...">
+
+                        <div class="d-flex flex-column mt-2">
+                            <div class="d-flex flex-row">
+                                {% if subscribed %}
+                                <a class="btn btn-secondary" href="{% url 'subs' video.slug %}"
+                                    role="button">Subscribed</a>
+                                {% else %}
+                                <a class="btn btn-danger" href="{% url 'subs' video.slug %}"
+                                    role="button">Subscribe</a>
+                                {% endif %}
+                            </div>
+                            <span class="image-size">{{subs}} <span> Subscribers</span> </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {% for p in videos %}
+
+
+        <div class="video">
+
+            <a href="{% url 'video' p.slug %}">
+
+                <div class="video__thumbnail">
+                    <img src="/media/{{p.video_thumbnail}}" alt="" />
+                </div>
+
+            </a>
+
+            <div class="video__details">
+
+                {% for c in youtuber %}
+
+                {% if c.youtuber == p.creator %}
+
+                <div class="author">
+                    <img src="/media/{{c.youtube_image}}" alt="" />
+                </div>
+
+                <div class="title">
+
+                    <a href="{% url 'video' p.slug %}">
+
+                        <h3>
+                            {{p.video_title}}
+                        </h3>
+
+                    </a>
+
+                    <a href="">{{c.channel_name}}</a>
+                    <span>{{p.add_date}}</span>
+
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<!-- Single Video Ends -->
+
+</div>
+
+{% endblock %}
